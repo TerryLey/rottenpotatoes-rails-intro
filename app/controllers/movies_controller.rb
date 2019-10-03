@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
   end
 
   def index
+	@movies = Movie.all
+=begin
 		if params.key?(:sort_by)
 			session[:sort_by] = params[:sort_by]
 		elsif session.key?(:sort_by)
@@ -27,6 +29,7 @@ class MoviesController < ApplicationController
 		end
 		@checked_ratings = (session[:ratings].keys if session.key?(:ratings)) || @all_ratings
     @movies = Movie.order(sort_by).where(rating: @checked_ratings)
+=end
   end
 
   def new
